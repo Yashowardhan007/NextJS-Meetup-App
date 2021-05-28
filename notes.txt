@@ -1,0 +1,55 @@
+Important Points
+1-The Folders Which we create in the 'Page', those  Subfolder also act as URL path
+2-[].js is used for creating dyanamic pages.in square bracket we genrally use dyanamic parameters
+
+3-import { useRouter } from 'next/router'
+const router = useRouter();
+router.query is used to extract dyanamic route data
+This is used for routing purpose
+
+4-import  Link  from 'next/link';
+<Link href='/news/great-framework'>Great framework</Link>
+<Link> Component is used instead of anchor tag / <a href="/news/great-framework"?></a>
+
+5-By Default Index.js in the pages folder will be loaded for Default path of '/'
+
+6-import { useRef } from 'react';
+This is used to extract data from the form in react 
+
+7-Export Default async function getStaticProps(){
+  returns{
+    props:
+  },
+  revalidate:10
+}
+This is used when we want to pre render the page with fetched data.The Pages are genrated during the build process
+The Revalidate feauture ensures that the pages is regenerated/updated after every 10 secs
+
+8-export async function getserverSideProps()
+{
+  return{
+    props:{
+
+    }
+  }
+}
+for continuos regeneration after deployed on the server this function is used..this function runs on the server
+
+9-export async function getStaticProps(context)
+{
+  context.params
+}
+context.params is used to access the dyanamic values encoded in the url
+
+10-export async function getStaticPaths()
+{
+  
+}
+it is needed in page components file,if it is dyanamic and you are using getStaticProps
+For which dyanamic values(meetupId) in this case it should pregenrate the pages.That is why getStaticPaths is required
+
+11-With Next Js you can build backend api within same project.For This the key feaiture is API Routes
+API Routes Accept incoming http request,with JSON Data attached to them.we can build api endpoints with this.For this we create 'api' folder within pages folder.The Files in api folder are turned to endpoints.Files within API contain server side code,they do not have UI Component Code.The Code in API Routes is never exposed to client
+
+12-import Head from 'next/head'
+used for adding head tags to next js  pages
